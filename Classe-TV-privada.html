@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BT">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe TV</title>
+</head>
+<body>
+    <script>
+        class TV {
+            #marca;
+            #modelo;
+            #canal;
+            #volume;
+            #ligada;
+
+            constructor(marca, modelo){
+                this.#marca = marca;
+                this.#modelo = modelo;
+                this.#canal = {
+                    atual: 0,
+                    min: 0,
+                    max: 10
+                };
+                this.#volume = {
+                    atual: 0,
+                    min: 0,
+                    max: 10
+                };
+                this.#ligada = false;
+            }
+
+            get marca() {
+                return this.#marca;
+            }
+            get modelo() {
+                return this.#modelo;
+            }
+            get canal() {
+                return this.#canal.atual;
+            }
+            get volume() {
+                return this.#volume.atual;
+            }
+            get ligada() {
+                return this.#ligada
+            }
+            ligar(){
+                return this.#ligada = true;
+            }
+            desligar(){
+                return this.#ligada = false;
+            }
+            mudaDeCanal(){
+                if(this.#ligada && this.#canal.atual < this.#canal.max){
+                    this.#canal.atual++;
+                } else if (this.#canal.atual == this.#canal.max) {
+                    this.#canal.atual = this.#canal.min;
+                } else {
+                    return "TV desligada!"
+                }
+                return this.#canal.atual;
+            }
+            set procuraCanal(canal) {
+                if(this.#ligada && canal >= this.#canal.min && canal<= this.#canal.max) {
+                    this.#canal.atual = canal;
+                } else if(this.#ligada==false) {
+                    return "TV desligada!"
+                } else {
+                    return "Canal não encontrado."
+                }
+                return this.#canal.atual;
+            }
+            aumentaVolume(){
+                if (this.#ligada && this.#volume.atual < this.#volume.max) {
+                    this.#volume.atual++;
+                } else if (this.#ligada == false) {
+                    return "TV desligada!";
+                }
+
+                return this.#volume.atual;
+            }
+            diminuiVolume(){
+                if(this.#ligada && this.#volume.atual > this.#volume.min) {
+                    this.#volume.atual--;
+                } else if (this.#ligada == false){
+                    return "TV desligada!";
+                }
+                return this.#volume.atual;
+            }
+            mute(){
+                if(this.#ligada){
+                    return this.#volume.min;
+                } else {
+                    return "TV desligada!";
+                }
+            }
+        }
+
+        const SAMSUNG = new TV("Samsung", "GG9000");
+    </script>
+</body>
+</html>

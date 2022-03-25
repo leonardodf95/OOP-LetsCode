@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+<body>
+    <script>
+        //Obejto
+        const pessoa = {};
+        
+        //Características
+        pessoa.Nome = "Leonardo Dias Ferreira";
+        pessoa.Altura = 1.70;
+        pessoa["Massa(kg)"] = 85;
+        pessoa.Naturalidade = "São José dos Campos";
+        pessoa["Nacionalidade"] = "brasileira";
+        pessoa["Profissão"] = "Pai/Malabarista";
+        
+        //Ações
+        pessoa.acordar = function() {
+            return "ON!"
+        }
+        pessoa["comer"] = function() {
+            return "Cozinhar, mastigar e engolir"
+        }
+        pessoa.trabalhar = function() {
+            return "Apresentação de arte de forma democrática!"
+        }
+        pessoa["estudar"] = function() {
+            return "Ler sobre o assunto e aplicar!"
+        }
+        pessoa.dormir = function() {
+            return "OFF!"
+        }
+        console.log(pessoa);
+    </script>
+</body>
+</html>

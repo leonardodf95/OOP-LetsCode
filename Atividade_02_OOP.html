@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 02</title>
+</head>
+<body>
+    <h1>Abra o console</h1>
+    <script>
+         //Obejto
+        const pessoa = {
+            nome: "Leonardo Dias Ferreira",
+            altura: 1.70,
+            peso: 85,
+            naturalidade: "São José dos Campos",
+            nacionalidade: "brasileira",
+            profissao: "Malabarista",
+            statusAcordado: false,
+            disposicao: false,
+            
+            acordar: function () {
+                if(this.statusAcordado == false) {
+                    return this.statusAcordado = true, this.disposicao = false;
+                } else {
+                    return "Já está acordado!";
+                }
+            },
+
+            dormir: function () {
+                if(this.statusAcordado == true) {
+                    return this.statusAcordado = false;
+                } else {
+                    return "Já está dormindo!"
+                }
+            },
+
+            tomarCafe: function () {
+                if (this.statusAcordado == true) {
+                    return this.disposicao = true;
+                } else {
+                    return "Está dormindo!"
+                }
+            },
+
+            trabalhar: function () {
+                if (this.statusAcordado == true) {
+                    return this.disposicao = false;
+                } else {
+                    return "Está dormindo!"
+                }
+            },
+
+            comer: function() {
+                if (this.statusAcordado == false) {
+                    return "Está dormindo!"
+                } else if (this.disposicao == true) {
+                    return "Cozinhou comida saudável, não engordou: " + this.peso;
+                } else {
+                    ++this.peso;
+                    return "Sem disposição para cozinhar, comeu mais de 7000 Kcal em fast-food e ganhou 1Kg: " + this.peso;
+                }
+            },
+
+            treinar: function() {
+                if (this.statusAcordado == false) {
+                    return "Está dormindo!"
+                } else if (this.disposicao == true) {
+                    --this.peso;
+                    return "Treinou com disposição, gastou mais de 7000 Kcal e perdeu 1Kg: " + this.peso;
+                } else {
+                    return "Treinou sem disposição, não fez diferença: " + this.peso;
+                }
+            }
+
+        };        
+        
+    </script>
+</body>
+</html>

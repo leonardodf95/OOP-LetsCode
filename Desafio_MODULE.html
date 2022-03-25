@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio MODULE</title>
+</head>
+
+<body>
+    <h1>Abra o console.</h1>
+    Comandos da calculadora:
+    <ul>
+        <li>CALCULADORA.soma</li>
+        <li>CALCULADORA.subtracao</li>
+        <li>CALCULADORA.divisao</li>
+        <li>CALCULADORA.multiplicacao</li>
+        <li>CALCULADORA.reset</li>
+        <li>CALCULADORA.resultado</li>
+    </ul>
+    
+    <script>
+        const CALCULADORA = (function () {
+            var calc = {
+                resultado: 0,
+                somar: function (a, b=0) {
+                    calc.resultado = calc.resultado + a + b;
+                    return calc.resultado;
+                },
+                subtrair: function (a, b=0) {
+                    calc.resultado = calc.resultado - a - b;
+                    return calc.resultado;
+                },
+                dividir: function (a, b=0) {
+                    if(b==0) {
+                        calc.resultado = calc.resultado/a;
+                    } else {
+                        calc.resultado = a/b;
+                    }
+                    return calc.resultado;
+                },
+                multiplicar: function (a, b=0) {
+                    if (b==0) {
+                        calc.resultado = calc.resultado*a;
+                    } else {
+                        calc.resultado = a*b;
+                    }
+                    return calc.resultado;
+                },
+                resetar: function () {
+                    return calc.resultado = 0;
+                },
+                getResult: function () {
+                    return calc.resultado;
+                }
+            }
+            return {
+                soma: calc.somar,
+                subtracao: calc.subtrair,
+                divisao: calc.dividir,
+                multiplicacao: calc.multiplicar,
+                reset: calc.resetar,
+                resultado: calc.getResult
+            };
+        })();
+    </script>
+</body>
+
+</html>
